@@ -1,0 +1,281 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="1200" height="700">
+
+  <defs>
+    <style>
+      text { font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif; }
+      .mono { font-family: 'IBM Plex Mono', 'Courier New', monospace; }
+    </style>
+    <!-- Leader line dot marker -->
+    <marker id="leader-dot" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto">
+      <circle cx="3.5" cy="3.5" r="2.8" fill="#B87333"/>
+    </marker>
+  </defs>
+
+  <!-- ── LAYER 1: BACKGROUND ── -->
+  <rect width="1200" height="700" fill="#0A1628"/>
+
+  <!-- ── LAYER 2: GRID ── -->
+  <path fill="none" stroke="#162035" stroke-width="0.5"
+    d="M0,0V700 M50,0V700 M100,0V700 M150,0V700 M200,0V700
+       M250,0V700 M300,0V700 M350,0V700 M400,0V700 M450,0V700
+       M500,0V700 M550,0V700 M600,0V700 M650,0V700 M700,0V700
+       M750,0V700 M800,0V700 M850,0V700 M900,0V700 M950,0V700
+       M1000,0V700 M1050,0V700 M1100,0V700 M1150,0V700 M1200,0V700
+       M0,0H1200 M0,50H1200 M0,100H1200 M0,150H1200 M0,200H1200
+       M0,250H1200 M0,300H1200 M0,350H1200 M0,400H1200 M0,450H1200
+       M0,500H1200 M0,550H1200 M0,600H1200 M0,650H1200 M0,700H1200"/>
+
+  <!-- ── LAYER 3: HEADER BAR ── -->
+  <rect x="0" y="0" width="1200" height="28" fill="#1B2A4A"/>
+  <text x="20" y="14" dominant-baseline="central" class="mono" font-size="8" fill="#4A5568">NTS — NOT TO SCALE</text>
+  <text x="600" y="14" text-anchor="middle" dominant-baseline="central"
+        font-size="9" fill="#8AAFCF" font-weight="700" letter-spacing="3">
+    FLYWEIGHT AEROSPACE  ·  PHASE-ONE HEAVY-LIFT AIRSHIP  ·  SIDE ELEVATION
+  </text>
+  <text x="1180" y="14" text-anchor="end" dominant-baseline="central"
+        class="mono" font-size="8" fill="#4A5568">CONCEPT DESIGN — PHASE ONE</text>
+
+  <!-- ── LAYER 4: HULL ── -->
+  <!-- Interior wash -->
+  <path d="M 70,325
+           C 144,325 261,237 367,237
+           C 685,250 1003,303 1130,307
+           L 1130,343
+           C 1003,347 685,400 367,413
+           C 261,413 144,325 70,325 Z"
+        fill="#1B2A4A" fill-opacity="0.4"/>
+  <!-- Hull outline -->
+  <path d="M 70,325
+           C 144,325 261,237 367,237
+           C 685,250 1003,303 1130,307
+           L 1130,343
+           C 1003,347 685,400 367,413
+           C 261,413 144,325 70,325 Z"
+        fill="none" stroke="#C8DCF0" stroke-width="1.8"/>
+  <!-- Centreline -->
+  <line x1="70" y1="325" x2="1130" y2="325"
+        stroke="#2A3D56" stroke-width="0.6" stroke-dasharray="10,5"/>
+  <!-- Max-beam station tick at x=367 (28% from nose) -->
+  <line x1="367" y1="237" x2="367" y2="413"
+        stroke="#2A3D56" stroke-width="0.7" stroke-dasharray="4,4"/>
+  <!-- Station label -->
+  <text x="370" y="228" class="mono" font-size="7" fill="#4A5568">MAX Ø</text>
+
+  <!-- ── LAYER 5: TAIL FINS ── -->
+  <!-- Upper fin (swept back) -->
+  <polygon points="971,292 1077,302 1077,247 981,280"
+           fill="#1B2A4A" fill-opacity="0.5" stroke="#C8DCF0" stroke-width="1.4"/>
+  <!-- Lower fin -->
+  <polygon points="971,358 1077,348 1077,403 981,370"
+           fill="#1B2A4A" fill-opacity="0.5" stroke="#C8DCF0" stroke-width="1.4"/>
+  <!-- Side fins (port + stbd) — edge-on in side view, shown as thick tick -->
+  <line x1="971" y1="325" x2="1077" y2="325" stroke="#C8DCF0" stroke-width="4.5"/>
+  <text x="1024" y="313" text-anchor="middle" class="mono"
+        font-size="6.5" fill="#8AAFCF" letter-spacing="0.5">P + S</text>
+
+  <!-- ── LAYER 6: GONDOLA ── -->
+  <!-- Struts from hull belly to gondola -->
+  <line x1="545" y1="404" x2="545" y2="420" stroke="#C8DCF0" stroke-width="1.2"/>
+  <line x1="672" y1="394" x2="672" y2="420" stroke="#C8DCF0" stroke-width="1.2"/>
+  <!-- Cross-brace between struts -->
+  <line x1="545" y1="404" x2="672" y2="420" stroke="#2A3D56" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <line x1="545" y1="420" x2="672" y2="404" stroke="#2A3D56" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <!-- Gondola body -->
+  <rect x="510" y="420" width="200" height="28" rx="4"
+        fill="#0F1F38" stroke="#C8DCF0" stroke-width="1.4"/>
+  <!-- Windscreen / crew section divider -->
+  <line x1="556" y1="420" x2="556" y2="448" stroke="#C8DCF0" stroke-width="0.8"/>
+  <!-- Landing skids -->
+  <line x1="536" y1="448" x2="536" y2="460" stroke="#C8DCF0" stroke-width="1.2"/>
+  <line x1="680" y1="448" x2="680" y2="460" stroke="#C8DCF0" stroke-width="1.2"/>
+  <line x1="524" y1="460" x2="548" y2="460" stroke="#C8DCF0" stroke-width="1.2"/>
+  <line x1="668" y1="460" x2="692" y2="460" stroke="#C8DCF0" stroke-width="1.2"/>
+
+  <!-- ── LAYER 7: MOORING MAST (BOW) ── -->
+  <!-- Mast spar -->
+  <line x1="70" y1="325" x2="40" y2="325" stroke="#C8DCF0" stroke-width="1.5"/>
+  <!-- Structural cone/triangle at nose fitting -->
+  <polygon points="70,314 70,336 40,325"
+           fill="none" stroke="#B87333" stroke-width="1.3"/>
+  <!-- Mooring ring -->
+  <circle cx="38" cy="325" r="5" fill="none" stroke="#B87333" stroke-width="1.3"/>
+
+  <!-- ── LAYER 8: PROPULSORS ── -->
+  <!-- All arrows point toward nose (−x = forward thrust direction) -->
+  <!-- Vectoring arcs show thrust-vector rotation range -->
+
+  <!-- FWD SHOULDER (×2 port + stbd)  x=309, cy=235 — straddles upper hull surface -->
+  <!-- Pylon from prop into hull surface -->
+  <line x1="309" y1="251" x2="309" y2="260" stroke="#4A5568" stroke-width="1.0"/>
+  <!-- Nacelle circle -->
+  <circle cx="309" cy="235" r="17" fill="#0C1B2E" stroke="#C8DCF0" stroke-width="1.3"/>
+  <circle cx="309" cy="235" r="2.2" fill="#C8DCF0"/>
+  <!-- Thrust arrow (toward nose, left) -->
+  <line x1="309" y1="235" x2="283" y2="235" stroke="#B87333" stroke-width="1.6"/>
+  <polygon points="283,235 289,231 289,239" fill="#B87333"/>
+  <!-- Vectoring arc (quarter arc, suggesting pitch authority) -->
+  <path d="M 298,235 A 11,11 0 0 1 309,224"
+        fill="none" stroke="#B87333" stroke-width="0.9" stroke-dasharray="3,2"/>
+  <!-- Labels -->
+  <text x="309" y="208" text-anchor="middle" class="mono"
+        font-size="9.5" fill="#B87333" font-weight="700">×2</text>
+  <text x="309" y="260" text-anchor="middle" class="mono"
+        font-size="7" fill="#8AAFCF">FWD SHOULDER</text>
+
+  <!-- FWD VENTRAL (×1)  x=468, cy=440 — below hull belly, forward of gondola -->
+  <!-- Strut from hull belly to prop -->
+  <line x1="468" y1="412" x2="468" y2="423" stroke="#C8DCF0" stroke-width="0.9"/>
+  <!-- Nacelle circle -->
+  <circle cx="468" cy="440" r="17" fill="#0C1B2E" stroke="#C8DCF0" stroke-width="1.3"/>
+  <circle cx="468" cy="440" r="2.2" fill="#C8DCF0"/>
+  <!-- Thrust arrow -->
+  <line x1="468" y1="440" x2="442" y2="440" stroke="#B87333" stroke-width="1.6"/>
+  <polygon points="442,440 448,436 448,444" fill="#B87333"/>
+  <!-- Vectoring arc (vertical authority for unload stabilisation) -->
+  <path d="M 468,429 A 11,11 0 0 1 479,440"
+        fill="none" stroke="#B87333" stroke-width="0.9" stroke-dasharray="3,2"/>
+  <text x="468" y="465" text-anchor="middle" class="mono"
+        font-size="7" fill="#8AAFCF">FWD VENTRAL</text>
+
+  <!-- AFT VENTRAL (×1)  x=733, cy=422 — below hull, aft of gondola -->
+  <line x1="733" y1="389" x2="733" y2="405" stroke="#C8DCF0" stroke-width="0.9"/>
+  <circle cx="733" cy="422" r="17" fill="#0C1B2E" stroke="#C8DCF0" stroke-width="1.3"/>
+  <circle cx="733" cy="422" r="2.2" fill="#C8DCF0"/>
+  <line x1="733" y1="422" x2="707" y2="422" stroke="#B87333" stroke-width="1.6"/>
+  <polygon points="707,422 713,418 713,426" fill="#B87333"/>
+  <path d="M 733,411 A 11,11 0 0 1 744,422"
+        fill="none" stroke="#B87333" stroke-width="0.9" stroke-dasharray="3,2"/>
+  <text x="733" y="447" text-anchor="middle" class="mono"
+        font-size="7" fill="#8AAFCF">AFT VENTRAL</text>
+
+  <!-- AFT SHOULDER (×2 port + stbd)  x=892, cy=273 — straddles upper hull surface -->
+  <line x1="892" y1="289" x2="892" y2="298" stroke="#4A5568" stroke-width="1.0"/>
+  <circle cx="892" cy="273" r="17" fill="#0C1B2E" stroke="#C8DCF0" stroke-width="1.3"/>
+  <circle cx="892" cy="273" r="2.2" fill="#C8DCF0"/>
+  <line x1="892" y1="273" x2="866" y2="273" stroke="#B87333" stroke-width="1.6"/>
+  <polygon points="866,273 872,269 872,277" fill="#B87333"/>
+  <path d="M 881,273 A 11,11 0 0 1 892,262"
+        fill="none" stroke="#B87333" stroke-width="0.9" stroke-dasharray="3,2"/>
+  <text x="892" y="248" text-anchor="middle" class="mono"
+        font-size="9.5" fill="#B87333" font-weight="700">×2</text>
+  <text x="892" y="298" text-anchor="middle" class="mono"
+        font-size="7" fill="#8AAFCF">AFT SHOULDER</text>
+
+  <!-- ── LAYER 9: DIMENSION LINE (150 m) ── -->
+  <!-- Drop lines from hull tips to dim line level -->
+  <line x1="70" y1="413" x2="70" y2="470"
+        stroke="#2A3D56" stroke-width="0.7" stroke-dasharray="3,4"/>
+  <line x1="1130" y1="343" x2="1130" y2="470"
+        stroke="#2A3D56" stroke-width="0.7" stroke-dasharray="3,4"/>
+  <!-- Main dimension line -->
+  <line x1="70" y1="478" x2="1130" y2="478"
+        stroke="#8AAFCF" stroke-width="1.0"/>
+  <!-- End ticks -->
+  <line x1="70" y1="470" x2="70" y2="486" stroke="#8AAFCF" stroke-width="1.3"/>
+  <line x1="1130" y1="470" x2="1130" y2="486" stroke="#8AAFCF" stroke-width="1.3"/>
+  <!-- Inline arrowheads -->
+  <polygon points="70,478 80,474 80,482" fill="#8AAFCF"/>
+  <polygon points="1130,478 1120,474 1120,482" fill="#8AAFCF"/>
+  <!-- Label (background knockout then text) -->
+  <rect x="554" y="467" width="92" height="22" fill="#0A1628"/>
+  <text x="600" y="478" text-anchor="middle" dominant-baseline="central"
+        class="mono" font-size="12" fill="#8AAFCF" font-weight="600"
+        letter-spacing="0.5">150 m</text>
+
+  <!-- ── LAYER 10: LEADER LINE CALLOUTS ── -->
+  <!-- Each: copper dot at feature → bent line → category label + data text -->
+
+  <!-- CALLOUT 1 — ENVELOPE VOLUME  anchor: top of hull at max-beam (367,237) -->
+  <polyline points="367,237 245,128 60,128"
+            fill="none" stroke="#B87333" stroke-width="0.85"
+            marker-start="url(#leader-dot)"/>
+  <text x="62" y="117" class="mono" font-size="8" fill="#B87333"
+        font-weight="700" letter-spacing="1">ENVELOPE VOLUME</text>
+  <text x="62" y="130" class="mono" font-size="12" fill="#E8F0FA"
+        font-weight="600">76,500 m³  He</text>
+
+  <!-- CALLOUT 5 — MOORING MAST  anchor: ring tip (38,325) -->
+  <polyline points="38,325 56,172 240,172"
+            fill="none" stroke="#B87333" stroke-width="0.85"
+            marker-start="url(#leader-dot)"/>
+  <text x="62" y="161" class="mono" font-size="8" fill="#B87333"
+        font-weight="700" letter-spacing="1">MOORING MAST</text>
+  <text x="62" y="174" class="mono" font-size="10" fill="#8AAFCF">bow mooring cone</text>
+
+  <!-- CALLOUT 4 — OPERATING ENVELOPE  anchor: upper hull at mid-span (600,258) -->
+  <polyline points="600,258 662,50 875,50"
+            fill="none" stroke="#B87333" stroke-width="0.85"
+            marker-start="url(#leader-dot)"/>
+  <text x="664" y="39" class="mono" font-size="8" fill="#B87333"
+        font-weight="700" letter-spacing="1">OPERATING ENVELOPE</text>
+  <text x="664" y="52" class="mono" font-size="11" fill="#E8F0FA"
+        font-weight="600">to −40 °C  ·  400–500 km</text>
+
+  <!-- CALLOUT 2 — PROPULSION  anchor: aft shoulder prop (892,256) -->
+  <polyline points="892,256 952,68 1150,68"
+            fill="none" stroke="#B87333" stroke-width="0.85"
+            marker-start="url(#leader-dot)"/>
+  <text x="954" y="57" class="mono" font-size="8" fill="#B87333"
+        font-weight="700" letter-spacing="1">PROPULSION</text>
+  <text x="954" y="70" class="mono" font-size="11" fill="#E8F0FA"
+        font-weight="600">6 × vectored diesel</text>
+  <text x="954" y="83" class="mono" font-size="10" fill="#8AAFCF">3.6 – 4.8 MW total  ·  0.6–0.8 MW/unit</text>
+
+  <!-- CALLOUT 3 — PAYLOAD  anchor: gondola underside centre (610,448) -->
+  <polyline points="610,448 524,508 300,508"
+            fill="none" stroke="#B87333" stroke-width="0.85"
+            marker-start="url(#leader-dot)"/>
+  <text x="302" y="497" class="mono" font-size="8" fill="#B87333"
+        font-weight="700" letter-spacing="1">PAYLOAD</text>
+  <text x="302" y="510" class="mono" font-size="11" fill="#E8F0FA"
+        font-weight="600">25–35 t pilot  ·  50 t design center</text>
+
+  <!-- CALLOUT 6 — REFERENCE MISSION  anchor: lower hull aft section (758,375) -->
+  <polyline points="758,375 714,542 480,542"
+            fill="none" stroke="#B87333" stroke-width="0.85"
+            marker-start="url(#leader-dot)"/>
+  <text x="482" y="531" class="mono" font-size="8" fill="#B87333"
+        font-weight="700" letter-spacing="1">REFERENCE MISSION</text>
+  <text x="482" y="544" class="mono" font-size="10" fill="#8AAFCF">Thunder Bay → Musselwhite  ·  ~470 km</text>
+
+  <!-- ── LAYER 11: TITLE BLOCK ── -->
+  <!-- Outer border -->
+  <rect x="888" y="566" width="272" height="122"
+        fill="#0A1628" stroke="#C8DCF0" stroke-width="1.5"/>
+  <!-- Company name bar -->
+  <rect x="888" y="566" width="272" height="22" fill="#1B2A4A"/>
+  <line x1="888" y1="588" x2="1160" y2="588" stroke="#C8DCF0" stroke-width="1.5"/>
+  <text x="1024" y="577" text-anchor="middle" dominant-baseline="central"
+        font-size="9" fill="#B87333" font-weight="700" letter-spacing="2">FLYWEIGHT AEROSPACE</text>
+  <!-- Drawing title -->
+  <text x="896" y="600" dominant-baseline="central"
+        font-size="8.5" fill="#E8F0FA" font-weight="600">PHASE-ONE HEAVY-LIFT AIRSHIP</text>
+  <text x="896" y="613" dominant-baseline="central"
+        font-size="7.5" fill="#8AAFCF">Side Elevation — Propulsion &amp; Payload</text>
+  <!-- Rule above spec table -->
+  <line x1="888" y1="621" x2="1160" y2="621" stroke="#4A5568" stroke-width="0.8"/>
+  <!-- Vertical column divider -->
+  <line x1="1024" y1="621" x2="1024" y2="688" stroke="#4A5568" stroke-width="0.6"/>
+  <!-- Spec rows -->
+  <text x="896" y="631" dominant-baseline="central"
+        class="mono" font-size="7" fill="#8AAFCF">HULL LENGTH</text>
+  <text x="1032" y="631" dominant-baseline="central"
+        class="mono" font-size="7" fill="#E8F0FA">150 m</text>
+  <line x1="888" y1="638" x2="1160" y2="638" stroke="#162035" stroke-width="0.8"/>
+  <text x="896" y="648" dominant-baseline="central"
+        class="mono" font-size="7" fill="#8AAFCF">He VOLUME</text>
+  <text x="1032" y="648" dominant-baseline="central"
+        class="mono" font-size="7" fill="#E8F0FA">76,500 m³</text>
+  <line x1="888" y1="655" x2="1160" y2="655" stroke="#162035" stroke-width="0.8"/>
+  <text x="896" y="665" dominant-baseline="central"
+        class="mono" font-size="7" fill="#8AAFCF">PROPULSION</text>
+  <text x="1032" y="665" dominant-baseline="central"
+        class="mono" font-size="7" fill="#E8F0FA">6 × diesel VT</text>
+  <line x1="888" y1="672" x2="1160" y2="672" stroke="#162035" stroke-width="0.8"/>
+  <text x="896" y="682" dominant-baseline="central"
+        class="mono" font-size="7" fill="#8AAFCF">DRAWING NO.</text>
+  <text x="1032" y="682" dominant-baseline="central"
+        class="mono" font-size="7" fill="#E8F0FA">FA-001-A</text>
+  <line x1="888" y1="688" x2="1160" y2="688" stroke="#4A5568" stroke-width="0.8"/>
+
+</svg>

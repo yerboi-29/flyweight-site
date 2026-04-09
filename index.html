@@ -89,11 +89,25 @@
     .hero {
       background: var(--navy);
       padding: 6rem 2rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('assets/arctic_mining_site_with_airship.png') center 40% / cover no-repeat;
+      filter: grayscale(100%);
+      opacity: 0.22;
+      pointer-events: none;
     }
 
     .hero-inner {
       max-width: 820px;
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
 
     .eyebrow {
@@ -253,6 +267,22 @@
     .aircraft {
       background: var(--navy);
       color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .aircraft::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('assets/graphic-06-airship-blueprint.svg') center center / cover no-repeat;
+      opacity: 0.13;
+      pointer-events: none;
+    }
+
+    .aircraft .section-inner {
+      position: relative;
+      z-index: 1;
     }
 
     .aircraft h2       { color: var(--white); }
@@ -290,7 +320,7 @@
     }
 
     /* ── TEAM ── */
-    .team { background: var(--light); }
+    .team { background: var(--white); }
 
     .team-grid {
       display: grid;
@@ -328,6 +358,51 @@
       font-size: 0.84rem;
       color: var(--steel);
       line-height: 1.65;
+    }
+
+    /* ── CURRENT STAGE ── */
+    .stage { background: var(--light); }
+
+    .stage-list {
+      list-style: none;
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 580px;
+    }
+
+    .stage-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 0.85rem;
+      font-size: 0.95rem;
+      color: var(--steel);
+      line-height: 1.5;
+    }
+
+    .stage-marker {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      flex-shrink: 0;
+      width: 1.4rem;
+      text-align: center;
+    }
+
+    .stage-marker.done    { color: var(--copper); }
+    .stage-marker.active  { color: var(--navy); }
+    .stage-marker.pending { color: var(--light); }
+
+    .stage-list li.done   { color: var(--navy); }
+    .stage-list li.active { color: var(--navy); font-weight: 500; }
+    .stage-list li.pending { color: #9AAABB; }
+
+    .stage-note {
+      margin-top: 2rem;
+      font-size: 0.82rem;
+      color: var(--steel);
+      font-style: italic;
     }
 
     /* ── CONTACT ── */
@@ -430,7 +505,7 @@
     </div>
     <div>
       <span class="stat-value">365</span>
-      <span class="stat-label">Days / year operational</span>
+      <span class="stat-label">Days / year design target</span>
     </div>
   </div>
 </div>
@@ -467,18 +542,18 @@
   <div class="section-inner">
     <span class="section-label">The aircraft</span>
     <h2>Purpose-built for this mission.</h2>
-    <p class="lead">Flyweight's aircraft is designed from first principles for Canadian Shield mine logistics. Not adapted from a military program or a passenger concept. Lighter-than-air buoyancy provides lift. Distributed diesel propulsion provides Arctic reliability. An active buoyancy management system enables full-payload delivery with no prepared surface and no ballast exchange at the destination site.</p>
+    <p class="lead">Flyweight's aircraft is designed from first principles for Canadian Shield mine logistics. Not adapted from a military program or a passenger concept. Lighter-than-air buoyancy provides lift. Distributed diesel propulsion provides Arctic reliability. An active buoyancy management system is designed to enable full-payload delivery with no prepared surface and no ballast exchange at the destination site. Figures below reflect current concept targets.</p>
 
     <div class="spec-grid">
       <div>
         <div class="spec-value">50 t</div>
         <div class="spec-name">Payload</div>
-        <div class="spec-note">20× a Twin Otter. Equivalent to a Hercules load. No runway, no road, no prepared surface required.</div>
+        <div class="spec-note">20× a Twin Otter. Equivalent to a Hercules load. Target payload for the phase-one design concept.</div>
       </div>
       <div>
         <div class="spec-value">~70 kts</div>
         <div class="spec-name">Cruise speed</div>
-        <div class="spec-note">A 500 km delivery mission completes in under four hours each way.</div>
+        <div class="spec-note">A 500 km delivery mission completes in under four hours each way. Modeled on current concept parameters.</div>
       </div>
       <div>
         <div class="spec-value">−40 °C</div>
@@ -488,7 +563,7 @@
       <div>
         <div class="spec-value">Any surface</div>
         <div class="spec-name">Landing requirement</div>
-        <div class="spec-note">Active buoyancy management eliminates the need for ballast exchange at delivery sites. A simple mooring mast is the only site infrastructure required.</div>
+        <div class="spec-note">Active buoyancy management is designed to eliminate the need for ballast exchange at delivery sites. Target concept of operations requires a mooring solution at the destination rather than runway construction.</div>
       </div>
     </div>
   </div>
@@ -499,25 +574,43 @@
   <div class="section-inner">
     <span class="section-label">The team</span>
     <h2>Built by people who have done this before.</h2>
-    <p class="lead">The founding team combines aerospace engineering, systems integration, and commercial development experience across NASA research programs, aerospace prime contractors, lighter-than-air platforms, and prior venture-backed startups.</p>
+    <p class="lead">The founding team has direct experience in lighter-than-air platform development, aerospace systems engineering from concept through flight hardware, and commercial development in industrial aerospace markets. We have built and flown things. We know what the hard problems are.</p>
 
     <div class="team-grid">
       <div class="team-card">
         <span class="team-role">Founder &amp; CEO</span>
         <div class="team-title">Aerospace Engineer</div>
-        <div class="team-bio">NASA research program background. Prior founding experience as CTO of a venture-backed commercial aerospace company (direct SBIR Phase II award). Patent holder in aerospace systems.</div>
+        <div class="team-bio">NASA research program background. Prior venture-backed aerospace founding experience as CTO, including direct SBIR Phase II award. Patent holder in aerospace systems. Has navigated a company from concept through government-funded development.</div>
       </div>
       <div class="team-card">
         <span class="team-role">CTO</span>
         <div class="team-title">Systems Engineer</div>
-        <div class="team-bio">Aerospace prime contractor and commercial space program background. Systems integration experience across multiple flight hardware programs. Patent holder in aerospace systems.</div>
+        <div class="team-bio">Aerospace prime contractor background. Systems integration across multiple flight hardware programs from preliminary design through delivery. Patent holder in aerospace systems. Brings the discipline of production programs to an early-stage vehicle.</div>
       </div>
       <div class="team-card">
         <span class="team-role">CCO</span>
         <div class="team-title">Commercial Lead</div>
-        <div class="team-bio">Direct lighter-than-air platform development background. Aerospace and remote sensing industry experience. Revenue development focus across commercial aerospace and industrial sectors.</div>
+        <div class="team-bio">Hands-on lighter-than-air platform development experience. Revenue development across aerospace and industrial remote sensing markets. Understands both the technology and what operators actually need from it.</div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ── CURRENT STAGE ── -->
+<section class="stage">
+  <div class="section-inner">
+    <span class="section-label">Where we are</span>
+    <h2>Concept definition. Active customer discovery.</h2>
+    <ul class="stage-list">
+      <li class="done"><span class="stage-marker done">✓</span> Mission concept and preliminary performance modeling complete</li>
+      <li class="done"><span class="stage-marker done">✓</span> Market thesis validated against published logistics cost data</li>
+      <li class="done"><span class="stage-marker done">✓</span> Founding team assembled with direct domain experience</li>
+      <li class="active"><span class="stage-marker active">→</span> Customer discovery underway with remote mine logistics stakeholders</li>
+      <li class="active"><span class="stage-marker active">→</span> Seeking letters of intent, operating partners, and technical advisors</li>
+      <li class="pending"><span class="stage-marker pending">○</span> Detailed engineering and vehicle sizing</li>
+      <li class="pending"><span class="stage-marker pending">○</span> Prototype development and flight test program</li>
+    </ul>
+    <p class="stage-note">Technical overview available on request. Detailed materials shared under NDA.</p>
   </div>
 </section>
 
@@ -526,9 +619,9 @@
   <div class="section-inner">
     <span class="section-label">Contact</span>
     <h2>We're looking for early conversations.</h2>
-    <p class="lead">Flyweight Aerospace is at the pre-commercial development stage. We are not selling a service yet. We are identifying mine operators who are willing to engage early, share their logistics constraints, and potentially sign a letter of intent in exchange for direct input into how the service is designed.</p>
+    <p class="lead">Flyweight Aerospace is at the pre-commercial development stage. We are not selling a service yet. We are looking to speak with mine operators and logistics managers who are willing to share their current constraints — ice road dependence, emergency freight spend, inventory buffer cost — and give direct input into how the service is designed. The ask is a discovery call, not a commitment. Operators who engage early and sign a non-binding letter of intent get direct input on the concept of operations.</p>
     <a href="mailto:james@flyweightaero.com" class="contact-email">james@flyweightaero.com</a>
-    <p class="contact-note">We are happy to share our technical overview on request. Initial conversations are non-binding and confidential.</p>
+    <p class="contact-note">Initial conversations are non-binding and confidential. We are happy to share our technical overview on request.</p>
   </div>
 </section>
 

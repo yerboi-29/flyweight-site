@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh --version)",
+      "Bash(gh auth:*)",
+      "Bash(gh repo:*)",
+      "WebSearch",
+      "Bash(claude mcp:*)",
+      "mcp__vercel__deploy_to_vercel",
+      "Bash(vercel --version)",
+      "Bash(vercel deploy:*)"
+    ]
+  }
+}
