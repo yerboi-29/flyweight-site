@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flyweight Aerospace: Heavy lift. No roads required.</title>
-  <meta name="description" content="Flyweight Aerospace delivers 50-tonne cargo loads to remote mine sites using lighter-than-air aircraft. No runway. No road. Year-round.">
+  <title>Flyweight Aerospace: Lighter-than-air systems. Survey to heavy lift.</title>
+  <meta name="description" content="Flyweight Aerospace builds purpose-built lighter-than-air aircraft — from autonomous survey and remote-sensing platforms to 50-tonne no-runway heavy-lift cargo. Crawl, walk, run.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -237,7 +237,10 @@
     .problem-card {
       border-left: 3px solid var(--copper);
       padding-left: 1.25rem;
+      transition: transform 0.18s ease;
     }
+
+    .problem-card:hover { transform: translateX(4px); }
 
     .problem-number {
       font-family: var(--mono);
@@ -333,6 +336,14 @@
       background: var(--white);
       padding: 1.75rem 1.5rem;
       border-radius: 2px;
+      border: 1px solid var(--light);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+
+    .team-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 26px rgba(27,42,74,0.1);
+      border-color: var(--copper);
     }
 
     .team-role {
@@ -358,6 +369,408 @@
       font-size: 0.84rem;
       color: var(--steel);
       line-height: 1.65;
+    }
+
+    /* ── ROADMAP (CRAWL / WALK / RUN) ── */
+    .roadmap { background: var(--light); }
+
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .roadmap-card {
+      background: var(--white);
+      border-top: 3px solid var(--light);
+      padding: 1.75rem 1.5rem;
+      border-radius: 2px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .roadmap-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 26px rgba(27,42,74,0.12);
+    }
+
+    .roadmap-card.active {
+      border-top-color: var(--copper);
+      box-shadow: 0 1px 18px rgba(27,42,74,0.08);
+    }
+
+    .roadmap-card.active:hover {
+      box-shadow: 0 12px 30px rgba(27,42,74,0.16);
+    }
+
+    .roadmap-stage {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--copper);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .roadmap-title {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.3;
+      margin-bottom: 0.7rem;
+    }
+
+    .roadmap-desc {
+      font-size: 0.85rem;
+      color: var(--steel);
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    .roadmap-meta {
+      font-family: var(--mono);
+      font-size: 0.66rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--steel);
+      margin-top: 1.25rem;
+      padding-top: 0.9rem;
+      border-top: 1px solid var(--light);
+    }
+
+    .roadmap-card.active .roadmap-meta { color: var(--navy); }
+
+    /* ── FIGURE ── */
+    .figure {
+      margin-top: 3rem;
+    }
+
+    .figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 2px;
+      border: 1px solid var(--light);
+    }
+
+    .figure figcaption {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--steel);
+      line-height: 1.6;
+      margin-top: 0.9rem;
+      max-width: 640px;
+    }
+
+    .figure figcaption strong {
+      color: var(--navy);
+      font-weight: 500;
+    }
+
+    /* ── USE-CASE GALLERY ── */
+    .usecase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .usecase-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      background: var(--white);
+      border: 1px solid var(--light);
+      border-radius: 3px;
+      padding: 0;
+      overflow: hidden;
+      cursor: pointer;
+      font-family: inherit;
+      color: inherit;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+
+    .usecase-card:hover,
+    .usecase-card:focus-visible {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 28px rgba(27,42,74,0.14);
+      border-color: var(--copper);
+      outline: none;
+    }
+
+    .usecase-thumb {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: var(--light);
+    }
+
+    .usecase-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .usecase-card:hover .usecase-thumb img {
+      transform: scale(1.05);
+    }
+
+    /* brand-tile variant (no photo) */
+    .usecase-thumb.is-tile {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        linear-gradient(135deg, var(--navy) 0%, #243657 100%);
+    }
+
+    .usecase-thumb.is-tile::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('assets/graphic-06-airship-blueprint.svg') center / cover no-repeat;
+      opacity: 0.16;
+    }
+
+    .usecase-thumb.is-tile svg {
+      position: relative;
+      width: 56px;
+      height: 56px;
+      stroke: var(--copper);
+      fill: none;
+      stroke-width: 1.5;
+      z-index: 1;
+    }
+
+    .usecase-body {
+      padding: 1.25rem 1.35rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .usecase-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.3;
+      margin-bottom: 0.5rem;
+    }
+
+    .usecase-teaser {
+      font-size: 0.83rem;
+      color: var(--steel);
+      line-height: 1.55;
+      flex-grow: 1;
+    }
+
+    .usecase-cta {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--copper);
+      margin-top: 1.1rem;
+      transition: letter-spacing 0.18s ease;
+    }
+
+    .usecase-card:hover .usecase-cta { letter-spacing: 0.16em; }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(27,42,74,0.55);
+      backdrop-filter: blur(2px);
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 4vh 1.25rem;
+      overflow-y: auto;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s ease, visibility 0.2s ease;
+      z-index: 200;
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal {
+      position: relative;
+      background: var(--white);
+      max-width: 640px;
+      width: 100%;
+      border-radius: 4px;
+      box-shadow: 0 24px 60px rgba(27,42,74,0.35);
+      transform: scale(0.96);
+      transition: transform 0.2s ease;
+      margin: auto;
+    }
+
+    .modal-overlay.open .modal { transform: scale(1); }
+
+    .modal-close {
+      position: absolute;
+      top: 0.6rem;
+      right: 0.6rem;
+      width: 2.1rem;
+      height: 2.1rem;
+      border: none;
+      background: rgba(247,249,252,0.9);
+      color: var(--navy);
+      border-radius: 50%;
+      font-size: 1.3rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s ease, color 0.15s ease;
+      z-index: 2;
+    }
+
+    .modal-close:hover {
+      background: var(--copper);
+      color: var(--white);
+    }
+
+    .modal-hero {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+      border-radius: 4px 4px 0 0;
+    }
+
+    .modal-content { padding: 2rem 2.25rem 2.25rem; }
+
+    .modal-content .modal-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--copper);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+
+    .modal-content h3 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .modal-content p {
+      font-size: 0.92rem;
+      color: var(--steel);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .modal-content img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid var(--light);
+      border-radius: 3px;
+      margin: 0.25rem 0 1rem;
+    }
+
+    .modal-content figcaption {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--steel);
+      line-height: 1.55;
+      margin: -0.5rem 0 1rem;
+    }
+
+    .modal-content h4 {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--navy);
+      margin: 1.4rem 0 0.6rem;
+    }
+
+    .modal-content ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .modal-content li {
+      font-size: 0.88rem;
+      color: var(--steel);
+      line-height: 1.55;
+      padding-left: 1.1rem;
+      position: relative;
+    }
+
+    .modal-content li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 5px;
+      height: 5px;
+      background: var(--copper);
+      border-radius: 50%;
+    }
+
+    .modal-tag {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.66rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--steel);
+      margin-top: 1.6rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--light);
+      width: 100%;
+    }
+
+    .modal-tag b { color: var(--copper); font-weight: 600; }
+
+    /* ── SCROLL REVEAL (only when JS is active, so no-JS users see content) ── */
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .js .reveal.in-view {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── REDUCED MOTION ── */
+    @media (prefers-reduced-motion: reduce) {
+      .js .reveal { opacity: 1; transform: none; transition: none; }
+      .modal { transform: none; transition: opacity 0.15s ease; }
+      .modal-overlay.open .modal { transform: none; }
+      .usecase-card,
+      .usecase-thumb img,
+      .usecase-card:hover .usecase-thumb img { transition: none; transform: none; }
+      html { scroll-behavior: auto; }
     }
 
     /* ── CURRENT STAGE ── */
@@ -464,10 +877,16 @@
       .stats-band     { padding: 1.25rem; }
       .stats-inner    { gap: 1.5rem; }
       footer          { padding: 1.5rem 1.25rem; }
+      .usecase-grid   { grid-template-columns: 1fr; }
+      .modal-overlay  { padding: 0; }
+      .modal          { border-radius: 0; min-height: 100%; }
+      .modal-hero     { border-radius: 0; }
+      .modal-content  { padding: 1.75rem 1.4rem 2rem; }
     }
   </style>
 </head>
 <body>
+<script>document.documentElement.classList.add('js');</script>
 
 <!-- ── NAV ── -->
 <nav>
@@ -481,9 +900,9 @@
 <!-- ── HERO ── -->
 <section class="hero">
   <div class="hero-inner">
-    <p class="eyebrow">Heavy-lift airship logistics · Canadian Shield</p>
+    <p class="eyebrow">Lighter-than-air systems · Crawl · Walk · Run</p>
     <h1>Heavy lift.<br><em>No roads required.</em></h1>
-    <p>Flyweight Aerospace delivers 50-tonne cargo loads to remote mine sites using lighter-than-air aircraft. No runway, no road, no ice dependency. Year-round. At a fraction of current air freight cost.</p>
+    <p>Flyweight Aerospace builds purpose-built lighter-than-air aircraft. We follow a deliberate crawl-walk-run path: compliant test platforms first, an autonomous survey and remote-sensing aircraft as our first commercial platform, and 50-tonne heavy-lift cargo as the destination — delivering to remote sites with no runway and no road.</p>
     <a href="#contact" class="btn">Get in touch</a>
   </div>
 </section>
@@ -512,7 +931,7 @@
 
 <!-- ── THE PROBLEM ── -->
 <section class="problem">
-  <div class="section-inner">
+  <div class="section-inner reveal">
     <span class="section-label">The problem</span>
     <h2>Remote mine logistics is expensive, seasonal, and getting worse.</h2>
     <p class="lead">Ice roads in the Canadian Shield now operate roughly ten fewer days per decade due to warming temperatures. Mines that depend on them carry months of consumables on-site to hedge against late openings and early closures, at enormous inventory cost. When roads close unexpectedly, the only alternative is emergency air freight at rates that bear no relationship to actual transport economics.</p>
@@ -537,12 +956,102 @@
   </div>
 </section>
 
+<!-- ── CRAWL / WALK / RUN ── -->
+<section class="roadmap">
+  <div class="section-inner reveal">
+    <span class="section-label">How we get there</span>
+    <h2>Crawl, walk, run.</h2>
+    <p class="lead">A 50-tonne aircraft is a destination, not a first project. Flyweight is a lighter-than-air systems company: we build purpose-built airships and compound the engineering, certification, and operating know-how across each one. Every stage flies real hardware, retires real risk, and earns its place ahead of the next.</p>
+
+    <div class="roadmap-grid">
+      <div class="roadmap-card">
+        <span class="roadmap-stage">Crawl</span>
+        <div class="roadmap-title">Compliant LTA test platforms</div>
+        <p class="roadmap-desc">Small, regulation-compliant airborne platforms that prove the fundamentals — envelope handling, propulsion and control, autonomy, payload integration, launch and recovery, and the field procedures and regulator-facing evidence that everything later depends on.</p>
+        <span class="roadmap-meta">Current focus</span>
+      </div>
+      <div class="roadmap-card active">
+        <span class="roadmap-stage">Walk · first commercial platform</span>
+        <div class="roadmap-title">Autonomous survey &amp; remote sensing</div>
+        <p class="roadmap-desc">A 300 kg-class autonomous aircraft carrying survey payloads — LiDAR, magnetometry, hyperspectral and thermal imaging — for mineral exploration, forestry and wildfire monitoring, and infrastructure inspection. This is our first revenue platform, and the stage closest to flight.</p>
+        <span class="roadmap-meta">First revenue · in development</span>
+      </div>
+      <div class="roadmap-card">
+        <span class="roadmap-stage">Run</span>
+        <div class="roadmap-title">50-tonne heavy-lift cargo</div>
+        <p class="roadmap-desc">The no-runway heavy-lift cargo aircraft — the scaled application of a proven LTA-systems capability to year-round resupply of remote mines and other austere, roadless sites.</p>
+        <span class="roadmap-meta">The destination</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FIRST PLATFORM: REMOTE SENSING ── -->
+<section class="problem">
+  <div class="section-inner reveal">
+    <span class="section-label">The walk stage · flying first</span>
+    <h2>An airborne sensor platform that stays up, holds still, and carries more.</h2>
+    <p class="lead">Our first commercial platform is a purpose-built autonomous airship for airborne survey and inspection. Lighter-than-air carriage gives sensors something fixed-wing aircraft, helicopters, and quadcopters can't offer all at once: long endurance, a low-vibration ride, low-and-slow persistence for high resolution, and the payload volume to run a full multi-sensor stack in a single sortie — over terrain where a ground chase team can't follow. It is also where the team's remote-sensing background is most directly load-bearing, and where we expect to earn first.</p>
+
+    <div class="usecase-grid">
+
+      <button type="button" class="usecase-card" data-modal="mineral" aria-haspopup="dialog">
+        <span class="usecase-thumb">
+          <img src="assets/arctic_mining_site_with_airship.png" alt="Airship over rugged remote terrain">
+        </span>
+        <span class="usecase-body">
+          <span class="usecase-title">Mineral exploration</span>
+          <span class="usecase-teaser">Low-and-slow multi-sensor geophysical survey for detailed drill-target follow-up.</span>
+          <span class="usecase-cta">View use case →</span>
+        </span>
+      </button>
+
+      <button type="button" class="usecase-card" data-modal="wildfire" aria-haspopup="dialog">
+        <span class="usecase-thumb">
+          <img src="assets/michigan-firewatch-coverage.png" alt="Map of Michigan with twelve airship coverage circles over the state's forests">
+        </span>
+        <span class="usecase-body">
+          <span class="usecase-title">Wildfire &amp; disaster watch</span>
+          <span class="usecase-teaser">Persistent thermal overhead that holds station for hours — no fuel-cycle rotations.</span>
+          <span class="usecase-cta">View use case →</span>
+        </span>
+      </button>
+
+      <button type="button" class="usecase-card" data-modal="forestry" aria-haspopup="dialog">
+        <span class="usecase-thumb is-tile">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <polygon points="12 3 6 12 9 12 5 18 19 18 15 12 18 12"></polygon>
+            <line x1="12" y1="18" x2="12" y2="22"></line>
+          </svg>
+        </span>
+        <span class="usecase-body">
+          <span class="usecase-title">Forestry inventory &amp; carbon</span>
+          <span class="usecase-teaser">LiDAR, multispectral, and RGB canopy data in a single low-vibration sortie.</span>
+          <span class="usecase-cta">View use case →</span>
+        </span>
+      </button>
+
+      <button type="button" class="usecase-card" data-modal="infrastructure" aria-haspopup="dialog">
+        <span class="usecase-thumb">
+          <img src="assets/powerline-ice-storm-inspection.png" alt="Survey airship scanning ice-laden power lines and a collapsed transmission tower in a snowy forest">
+        </span>
+        <span class="usecase-body">
+          <span class="usecase-title">Infrastructure inspection</span>
+          <span class="usecase-teaser">Long-corridor power, pipeline, and rail inspection with no following chase team.</span>
+          <span class="usecase-cta">View use case →</span>
+        </span>
+      </button>
+
+    </div>
+  </div>
+</section>
+
 <!-- ── THE AIRCRAFT ── -->
 <section class="aircraft">
-  <div class="section-inner">
-    <span class="section-label">The aircraft</span>
-    <h2>Purpose-built for this mission.</h2>
-    <p class="lead">Flyweight's aircraft is designed from first principles for Canadian Shield mine logistics. Not adapted from a military program or a passenger concept. Lighter-than-air buoyancy provides lift. Distributed diesel propulsion provides Arctic reliability. An active buoyancy management system is designed to enable full-payload delivery with no prepared surface and no ballast exchange at the destination site. Figures below reflect current concept targets.</p>
+  <div class="section-inner reveal">
+    <span class="section-label">The run stage · the heavy-lift aircraft</span>
+    <h2>Purpose-built for the mission that started it all.</h2>
+    <p class="lead">The destination platform is designed from first principles for Canadian Shield mine logistics — not adapted from a military program or a passenger concept. Lighter-than-air buoyancy provides lift. Distributed diesel propulsion provides Arctic reliability. An active buoyancy management system is designed to enable full-payload delivery with no prepared surface and no ballast exchange at the destination site. Figures below reflect current concept targets.</p>
 
     <div class="spec-grid">
       <div>
@@ -571,7 +1080,7 @@
 
 <!-- ── TEAM ── -->
 <section class="team">
-  <div class="section-inner">
+  <div class="section-inner reveal">
     <span class="section-label">The team</span>
     <h2>Built by people who have done this before.</h2>
     <p class="lead">The founding team has direct experience in lighter-than-air platform development, aerospace systems engineering from concept through flight hardware, and commercial development in industrial aerospace markets. We have built and flown things. We know what the hard problems are.</p>
@@ -598,17 +1107,17 @@
 
 <!-- ── CURRENT STAGE ── -->
 <section class="stage">
-  <div class="section-inner">
+  <div class="section-inner reveal">
     <span class="section-label">Where we are</span>
-    <h2>Concept definition. Active customer discovery.</h2>
+    <h2>Crawl stage. Building hardware. Talking to customers.</h2>
     <ul class="stage-list">
       <li class="done"><span class="stage-marker done">✓</span> Mission concept and preliminary performance modeling complete</li>
-      <li class="done"><span class="stage-marker done">✓</span> Market thesis validated against published logistics cost data</li>
-      <li class="done"><span class="stage-marker done">✓</span> Founding team assembled with direct domain experience</li>
-      <li class="active"><span class="stage-marker active">→</span> Customer discovery underway with remote mine logistics stakeholders</li>
-      <li class="active"><span class="stage-marker active">→</span> Seeking letters of intent, operating partners, and technical advisors</li>
-      <li class="pending"><span class="stage-marker pending">○</span> Detailed engineering and vehicle sizing</li>
-      <li class="pending"><span class="stage-marker pending">○</span> Prototype development and flight test program</li>
+      <li class="done"><span class="stage-marker done">✓</span> Market thesis validated across survey and heavy-lift logistics against published data</li>
+      <li class="done"><span class="stage-marker done">✓</span> Founding team assembled with LTA, aerospace systems, and remote-sensing experience</li>
+      <li class="active"><span class="stage-marker active">→</span> Crawl: compliant LTA test platforms and payload integration</li>
+      <li class="active"><span class="stage-marker active">→</span> Customer discovery with mineral exploration, forestry, and mine logistics stakeholders; seeking letters of intent</li>
+      <li class="pending"><span class="stage-marker pending">○</span> Walk: 300 kg-class autonomous survey platform and first revenue</li>
+      <li class="pending"><span class="stage-marker pending">○</span> Run: 50-tonne heavy-lift cargo prototype and flight test</li>
     </ul>
     <p class="stage-note">Technical overview available on request. Detailed materials shared under NDA.</p>
   </div>
@@ -616,10 +1125,10 @@
 
 <!-- ── CONTACT ── -->
 <section class="contact" id="contact">
-  <div class="section-inner">
+  <div class="section-inner reveal">
     <span class="section-label">Contact</span>
     <h2>We're looking for early conversations.</h2>
-    <p class="lead">Flyweight Aerospace is at the pre-commercial development stage. We are not selling a service yet. We are looking to speak with mine operators and logistics managers who are willing to share their current constraints — ice road dependence, emergency freight spend, inventory buffer cost — and give direct input into how the service is designed. The ask is a discovery call, not a commitment. Operators who engage early and sign a non-binding letter of intent get direct input on the concept of operations.</p>
+    <p class="lead">Flyweight Aerospace is at the pre-commercial development stage. We want to speak with two groups. First, organizations with airborne survey or inspection needs — mineral explorers, forestry and wildfire agencies, infrastructure operators — who can tell us what today's platforms get wrong. Second, mine operators and logistics managers willing to share their constraints: ice road dependence, emergency freight spend, inventory buffer cost. The ask is a discovery call, not a commitment. Those who engage early and sign a non-binding letter of intent get direct input on the concept of operations.</p>
     <a href="mailto:james@flyweightaero.com" class="contact-email">james@flyweightaero.com</a>
     <p class="contact-note">Initial conversations are non-binding and confidential. We are happy to share our technical overview on request.</p>
   </div>
@@ -630,6 +1139,173 @@
   <span class="footer-wordmark">Flyweight Aerospace</span>
   <span class="footer-note">flyweightaero.com &nbsp;·&nbsp; Pre-commercial stage &nbsp;·&nbsp; Not an offer of securities.</span>
 </footer>
+
+<!-- ── MODAL ── -->
+<div class="modal-overlay" id="modal-overlay" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal-close" id="modal-close" aria-label="Close use case" type="button">&times;</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<!-- ── MODAL CONTENT TEMPLATES ── -->
+<template id="tpl-mineral">
+  <img class="modal-hero" src="assets/arctic_mining_site_with_airship.png" alt="Survey airship over rugged remote terrain">
+  <div class="modal-content">
+    <span class="modal-eyebrow">Use case · Mineral exploration</span>
+    <h3 id="modal-title">Targeted geophysical survey, flown low and slow</h3>
+    <p>Mineral explorers run recurring, reporting-driven survey campaigns — NI 43-101 in Canada, S-K 1300 in the U.S. — over rugged claim blocks. Incumbent fixed-wing geophysical survey covers ground fast, but flying high and quick is coarse for the detailed follow-up work that defines drill targets.</p>
+    <p>Flyweight's autonomous survey airship is built for that follow-up. Flying low and slow — roughly 2,000–3,000 ft above ground at survey speed — it resolves finer detail than a fixed-wing pass, on a low-vibration platform that protects sensitive instruments.</p>
+    <h4>What it carries</h4>
+    <ul>
+      <li>Magnetometry</li>
+      <li>Hyperspectral imaging (hundreds of bands)</li>
+      <li>Sub-centimetre LiDAR</li>
+      <li>Radiometrics — multiple modalities in a single sortie</li>
+    </ul>
+    <h4>Why lighter-than-air wins</h4>
+    <ul>
+      <li>Low-and-slow flight yields higher spatial resolution</li>
+      <li>Long endurance over remote claim blocks</li>
+      <li>A full sensor stack in one flight instead of several campaigns</li>
+      <li>Reaches terrain a ground crew can't follow</li>
+    </ul>
+    <span class="modal-tag"><b>Walk stage</b> · first commercial platform</span>
+  </div>
+</template>
+
+<template id="tpl-wildfire">
+  <div class="modal-content">
+    <span class="modal-eyebrow">Use case · Wildfire &amp; disaster watch</span>
+    <h3 id="modal-title">Persistent overhead that doesn't land for fuel</h3>
+    <p>Wildfire incident command leans on helicopters for overhead imagery — at $5,000–6,000 per flight hour, limited by fuel cycles and pilot rotations. Satellites are too coarse and too slow for an active fire line.</p>
+    <p>A station-keeping survey airship holds position for many hours, streaming continuous thermal and high-resolution imagery to incident commanders, then redeploys for post-storm and post-disaster damage assessment.</p>
+    <img src="assets/michigan-firewatch-coverage.png" alt="Map of Michigan with twelve airship coverage circles spanning the state's national and state forests">
+    <figcaption>Modeled coverage: twelve survey airships, station-kept across Michigan, place more than 90% of the state's national and state forest land under continuous overhead watch.</figcaption>
+    <h4>Beyond fire: flood &amp; storm response</h4>
+    <p>After hurricanes, river floods, and dam failures, responders need fast, repeatable maps of which structures are inundated and which roads are still passable. A loitering airship flies transects over an entire flooded community — capturing high-resolution imagery and comparing it against a pre-event baseline to triage damage block by block, without putting a crewed helicopter over fast-moving water.</p>
+    <img src="assets/flood-damage-assessment.png" alt="Three-panel view: a survey airship over a flooded neighborhood, a pre-flood baseline of the same area, and a post-flood image with inundated structures automatically outlined">
+    <figcaption>Survey overhead (left), pre-event baseline (top right), and automated change detection outlining inundated structures and flood extent (bottom right).</figcaption>
+    <h4>Why lighter-than-air wins</h4>
+    <ul>
+      <li>Holds station for hours, vs. helicopter fuel cycles</li>
+      <li>Continuous thermal hotspot detection and RGB situational awareness</li>
+      <li>Lower operating cost per hour of overhead</li>
+      <li>Change detection against pre-event baselines for rapid damage triage</li>
+      <li>Redeploys for fire, flood, and post-storm assessment</li>
+    </ul>
+    <span class="modal-tag"><b>Walk stage</b> · first commercial platform</span>
+  </div>
+</template>
+
+<template id="tpl-forestry">
+  <div class="modal-content">
+    <span class="modal-eyebrow">Use case · Forestry inventory &amp; carbon</span>
+    <h3 id="modal-title">One flight, the whole canopy</h3>
+    <p>Forest inventory and the fast-growing carbon-credit verification market both need recurring, high-quality aerial measurement — work that traditionally takes several separate fixed-wing campaigns.</p>
+    <p>Flyweight carries LiDAR, multispectral, and RGB together in a single low-vibration sortie, producing canopy-structure, biomass, and species data on a recurring per-acre basis that slots into existing federal and state survey frameworks.</p>
+    <h4>What it carries</h4>
+    <ul>
+      <li>LiDAR — canopy structure, biomass, fuel load</li>
+      <li>Multispectral &amp; hyperspectral — species and health</li>
+      <li>High-resolution RGB</li>
+    </ul>
+    <h4>Why lighter-than-air wins</h4>
+    <ul>
+      <li>Multi-modal capture in one sortie</li>
+      <li>Low vibration yields cleaner LiDAR returns</li>
+      <li>Recurring per-acre economics across multi-year cycles</li>
+      <li>Fits USGS 3DEP / USDA FIA-style procurement</li>
+    </ul>
+    <span class="modal-tag"><b>Walk stage</b> · first commercial platform</span>
+  </div>
+</template>
+
+<template id="tpl-infrastructure">
+  <div class="modal-content">
+    <span class="modal-eyebrow">Use case · Infrastructure inspection</span>
+    <h3 id="modal-title">Long corridors, no chase truck</h3>
+    <p>Power lines, pipelines, and rail corridors are inspected today by quadcopter drones — which in rugged terrain are limited less by battery than by the ground chase team that has to follow the aircraft by truck.</p>
+    <p>A long-endurance survey airship flies the corridor without a following crew, carrying high-resolution RGB, thermal, and LiDAR for vegetation-encroachment analysis, and redeploys quickly for post-storm emergency inspection.</p>
+    <img src="assets/powerline-ice-storm-inspection.png" alt="Survey airship scanning ice-laden transmission lines and a collapsed tower across a snowbound forest corridor at dawn">
+    <figcaption>Post-ice-storm corridor scan: assessing iced conductors, downed towers, and blocked access across a remote right-of-way — overhead, before crews can reach it by road.</figcaption>
+    <h4>What it carries</h4>
+    <ul>
+      <li>High-resolution RGB</li>
+      <li>Thermal imaging</li>
+      <li>LiDAR — vegetation-encroachment analysis</li>
+    </ul>
+    <h4>Why lighter-than-air wins</h4>
+    <ul>
+      <li>No following ground chase team</li>
+      <li>Long endurance over remote corridors</li>
+      <li>Rapid post-storm damage response</li>
+      <li>Strong fit for rugged, roadless rights-of-way</li>
+    </ul>
+    <p>An emerging vertical as long-range autonomous (BVLOS) rules mature.</p>
+    <span class="modal-tag"><b>Walk stage</b> · first commercial platform</span>
+  </div>
+</template>
+
+<!-- ── INTERACTIVITY ── -->
+<script>
+(function () {
+  var overlay  = document.getElementById('modal-overlay');
+  var body     = document.getElementById('modal-body');
+  var closeBtn = document.getElementById('modal-close');
+  var lastFocus = null;
+
+  function openModal(key) {
+    var tpl = document.getElementById('tpl-' + key);
+    if (!tpl) return;
+    body.innerHTML = '';
+    body.appendChild(tpl.content.cloneNode(true));
+    lastFocus = document.activeElement;
+    overlay.classList.add('open');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    overlay.scrollTop = 0;
+    closeBtn.focus();
+  }
+
+  function closeModal() {
+    overlay.classList.remove('open');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+  }
+
+  document.querySelectorAll('.usecase-card').forEach(function (card) {
+    card.addEventListener('click', function () {
+      openModal(card.getAttribute('data-modal'));
+    });
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) closeModal();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
+  });
+
+  // Scroll reveal
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    reveals.forEach(function (el) { io.observe(el); });
+  } else {
+    reveals.forEach(function (el) { el.classList.add('in-view'); });
+  }
+})();
+</script>
 
 </body>
 </html>
